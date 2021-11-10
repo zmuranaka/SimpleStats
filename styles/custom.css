@@ -1,0 +1,18 @@
+/* These fonts should be accessible and easy-to-read */
+body {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
+
+/* Overwrite the default size of the navbar-brand in bootstrap */
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+a.nav-link {
+    font-size: 1.25rem;
+}
+
+/* Overwrite the default hover color from bootstrap of nav links with the text-white class */
+a.nav-link.text-white:hover {
+    color: yellow !important;
+}
