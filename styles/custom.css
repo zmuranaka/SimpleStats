@@ -1,6 +1,8 @@
 /* These fonts should be accessible and easy-to-read */
 body {
     font-family: Tahoma, Arial, Helvetica, sans-serif;
+    background: white;
+    color: black;
 }
 
 /* Overwrite the default size of the navbar-brand in bootstrap */
@@ -12,7 +14,39 @@ a.nav-link {
     font-size: 1.25rem;
 }
 
+figure {
+    cursor: pointer;
+}
+
 /* Overwrite the default hover color from bootstrap of nav links with the text-white class */
 a.nav-link.text-white:hover {
     color: yellow !important;
+}
+
+nav {
+    background: #0d6efd;
+}
+
+/* Dark mode styles */
+
+body.dark-mode {
+    background: #333;
+    color: white;
+}
+
+body.dark-mode nav {
+    background: #131313;
+}
+
+body.dark-mode ul.dropdown-menu {
+    background: #444;
+    color: white;
+}
+
+body.dark-mode a.dropdown-item {
+    color: white;
+}
+
+body.dark-mode a.dropdown-item:hover {
+    background: #555;
 }
