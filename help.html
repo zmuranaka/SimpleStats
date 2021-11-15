@@ -95,7 +95,7 @@
     const darkModeSwitch = document.getElementById("darkModeSwitch");
     const fontSwitch = document.getElementById("fontSwitch");
 
-    if (theme) darkModeSwitch.checked = true;
+    if (theme === "dark") darkModeSwitch.checked = true;
     if (font) fontSwitch.selected = font;
 
     darkModeSwitch.addEventListener("change", switchColorScheme);
