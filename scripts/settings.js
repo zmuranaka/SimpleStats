@@ -1,5 +1,6 @@
 "use strict";
 var theme = localStorage.getItem("theme");
+var font = localStorage.getItem("font");
 
 if (!theme)
 {
@@ -18,4 +19,9 @@ if (!theme)
 if (theme === "dark")
 {
     document.body.classList.toggle("dark-mode");
+}
+
+if (font)
+{
+    document.body.style.fontFamily = `${font}, sans-serif`;
 }
