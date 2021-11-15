@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md py-3">
+    <nav class="navbar navbar-dark navbar-expand-md py-3">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="/SimpleStats">SimpleStats</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +69,7 @@
     const figCap = document.querySelector("figcaption");
     var bodyClasses = document.body.classList;
 
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches || localStorage.getItem("theme") === "dark")
     {
         switchColorScheme();
     }
@@ -81,11 +81,13 @@
         bodyClasses.toggle("dark-mode");
         if (bodyClasses.contains("dark-mode"))
         {
+            localStorage.setItem("theme", "dark");
             figImg.src = "images/sun.png";
             figCap.innerText = "Try out light mode";
         }
         else
         {
+            localStorage.setItem("theme", "light");
             figImg.src = "images/moon.png";
             figCap.innerText = "Try out dark mode";
         }

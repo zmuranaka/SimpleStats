@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md py-3">
+    <nav class="navbar navbar-dark navbar-expand-md py-3">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="/SimpleStats">SimpleStats</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +21,6 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="/SimpleStats">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="help.html">Help</a>
@@ -56,43 +53,21 @@
     </nav>
 
     <h1 class="display-1 text-center my-5 py-5">About</h1>
-    <p class="text-center">SimpleStats is a simple website that is intended to be used by anyone who is trying to solve a statistical distribution.</p>
-    <p class="text-center">There are calculators for almost all distributions that would be encountered in an introductory statistics course.</p>
-    <p class="text-center">All of the calculators are free to use by anyone anywhere they want.</p>
-
-    <figure class="position-absolute bottom-0 ms-2">
-        <img src="images/moon.png" alt="Image of a crescent moon" class="ms-2 mb-2">
-        <figcaption>Try out dark mode</figcaption>
-    </figure>
+    <div class="container text-center">
+        <p>
+            Have you ever been looking for help trying to solve a statistics problem, but all of the online calculators you found were too difficult to use or required signing up for full access?
+            Have you ever been looking for a clear explanation on probability distributions, but all of the websites you found gave you tons of ads and other unnecessary information?
+            Look no further than SimpleStats!
+        </p>
+        <p>
+            On SimpleStats, there are calculators for almost any distributions that you would encounter throughout an introductory statistics course.
+            If you have difficulty understanding a specific distribution, there are help pages for each individual one linked directly on the calculator's page.
+            Or, if you need more general help using the website, visit our general help page by clicking <a href="help.html">here</a>.
+            All of the calculators are free to use by anyone, any time they want.
+        </p>
+        <p>No ads. No charge. No sign up. Just statistics. The way it should be.</p>
+    </div>
 </body>
 
 </html>
-<script type="text/javascript">
-    "use strict";
-    const fig = document.querySelector("figure");
-    const figImg = document.querySelector("figure img");
-    const figCap = document.querySelector("figcaption");
-    var bodyClasses = document.body.classList;
-
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches)
-    {
-        switchColorScheme();
-    }
-
-    fig.addEventListener("click", switchColorScheme);
-    
-    function switchColorScheme()
-    {
-        bodyClasses.toggle("dark-mode");
-        if (bodyClasses.contains("dark-mode"))
-        {
-            figImg.src = "images/sun.png";
-            figCap.innerText = "Try out light mode";
-        }
-        else
-        {
-            figImg.src = "images/moon.png";
-            figCap.innerText = "Try out dark mode";
-        }
-    }
-</script>
+<script src="scripts/theme.js"></script>
