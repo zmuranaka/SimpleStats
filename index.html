@@ -63,16 +63,17 @@
 
 </html>
 <script src="scripts/switchColorScheme.js"></script>
+<script src="scripts/settings.js"></script>
 <script type="text/javascript">
     "use strict";
     const fig = document.querySelector("figure");
     const figImg = document.querySelector("figure img");
     const figCap = document.querySelector("figcaption");
-    var bodyClasses = document.body.classList;
 
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches || localStorage.getItem("theme") === "dark")
+    if (theme === "dark")
     {
-        changeFigAndTheme();
+        figImg.src = "images/sun.png";
+        figCap.innerText = "Try out light mode";   
     }
 
     fig.addEventListener("click", changeFigAndTheme);
@@ -91,4 +92,3 @@
         }
     }
 </script>
-<script src="scripts/settings.js"></script>

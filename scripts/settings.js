@@ -1,4 +1,5 @@
 "use strict";
+var bodyClasses = document.body.classList;
 var theme = localStorage.getItem("theme");
 var font = localStorage.getItem("font");
 
@@ -18,7 +19,7 @@ if (!theme)
 
 if (theme === "dark")
 {
-    document.body.classList.toggle("dark-mode");
+    bodyClasses.toggle("dark-mode");
 }
 
 if (font)
