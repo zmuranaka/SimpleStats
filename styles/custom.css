@@ -1,35 +1,38 @@
-/* These fonts should be accessible and easy-to-read */
 body {
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-family: Tahoma, Arial, Helvetica, sans-serif; /* These fonts should be accessible and easy-to-read */
     background: white;
     color: black;
 }
 
-/* Overwrite the default size of the navbar-brand in bootstrap */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.form-check .form-check-input {
+    float: none; /* Overwrite the default float left property from Bootstrap */
+}
+
+/* Navigation styles */
+
+nav {
+    background: #0d6efd;
+}
+
 .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Make the navbar a little bigger than the default in Bootstrap for easier reading */
 }
 
 a.nav-link {
     font-size: 1.25rem;
 }
 
-figure {
-    cursor: pointer;
-}
-
-/* Overwrite the default hover color from bootstrap of nav links with the text-white class */
 a.nav-link.text-white:hover {
-    color: yellow !important;
-}
-
-nav {
-    background: #0d6efd;
+    color: yellow !important; /* Overwrite the default hover color from Bootstrap of nav links with the text-white class */
 }
 
 /* Dark mode styles */
 
-body.dark-mode {
+body.dark-mode, body.dark-mode .list-group-item {
     background: #333;
     color: white;
 }

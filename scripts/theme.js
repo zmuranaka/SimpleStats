@@ -1,7 +1,7 @@
 "use strict";
 var theme = localStorage.getItem("theme");
 
-if (theme === null)
+if (!theme)
 {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches)
     {

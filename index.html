@@ -55,13 +55,14 @@
     <h1 class="display-1 text-center my-5 py-5">SimpleStats</h1>
     <h2 class="text-center">Statistics, made simple</h2>
 
-    <figure class="position-absolute bottom-0 ms-2">
+    <figure class="position-absolute bottom-0 ms-2" role="button">
         <img src="images/moon.png" alt="Image of a crescent moon" class="ms-2 mb-2">
         <figcaption>Try out dark mode</figcaption>
     </figure>
 </body>
 
 </html>
+<script src="scripts/switchColorScheme.js"></script>
 <script type="text/javascript">
     "use strict";
     const fig = document.querySelector("figure");
@@ -71,23 +72,20 @@
 
     if (window.matchMedia("(prefers-color-scheme: dark)").matches || localStorage.getItem("theme") === "dark")
     {
-        switchColorScheme();
+        changeFigAndTheme();
     }
 
-    fig.addEventListener("click", switchColorScheme);
-    
-    function switchColorScheme()
+    fig.addEventListener("click", changeFigAndTheme);
+
+    function changeFigAndTheme()
     {
-        bodyClasses.toggle("dark-mode");
-        if (bodyClasses.contains("dark-mode"))
+        if (switchColorScheme() == "dark")
         {
-            localStorage.setItem("theme", "dark");
             figImg.src = "images/sun.png";
             figCap.innerText = "Try out light mode";
         }
         else
         {
-            localStorage.setItem("theme", "light");
             figImg.src = "images/moon.png";
             figCap.innerText = "Try out dark mode";
         }
