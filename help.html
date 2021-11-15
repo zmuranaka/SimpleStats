@@ -85,5 +85,7 @@
     "use strict";
     const darkModeSwitch = document.getElementById("darkModeSwitch");
     var bodyClasses = document.body.classList;
+
+    if (localStorage.getItem("theme") === "dark") darkModeSwitch.checked = true;
     darkModeSwitch.addEventListener("change", switchColorScheme);
 </script>
