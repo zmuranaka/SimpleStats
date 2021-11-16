@@ -2,6 +2,7 @@
 var bodyClasses = document.body.classList;
 var theme = localStorage.getItem("theme");
 var font = localStorage.getItem("font");
+var fontSize = localStorage.getItem("fontSize");
 
 if (!theme)
 {
@@ -25,4 +26,9 @@ if (theme === "dark")
 if (font)
 {
     document.body.style.fontFamily = `${font}, sans-serif`;
+}
+
+if (fontSize === "Small")
+{
+    bodyClasses.toggle("small-font");
 }

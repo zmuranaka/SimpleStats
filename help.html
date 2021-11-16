@@ -65,14 +65,23 @@
             <input class="form-check-input" type="checkbox" id="darkModeSwitch" role="button">
             <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
         </div>
-        <div class="input-group">
+        <div class="input-group w-75 mx-auto my-2">
             <select class="form-select me-2" id="fontSwitch">
                 <option>Arial</option>
+                <option>Calibri</option>
+                <option>Segoe UI</option>
                 <option>Tahoma</option>
                 <option>Times New Roman</option>
                 <option>Verdana</option>
             </select>
             <label class="form-label" for="fontSwitch">Font</label>
+        </div>
+        <div class="input-group w-75 mx-auto my-2">
+            <select class="form-select me-2" id="fontSizeSwitch">
+                <option>Small</option>
+                <option>Normal</option>
+            </select>
+            <label class="form-label" for="fontSizeSwitch">Font Size</label>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -81,6 +90,20 @@
                     Toggling the dark mode option will change the color scheme of the website so it uses darker colors.
                     This can be easier on the eyes, especially at nighttime.
                     By default, if your operating system's default app mode is set to dark, then so will the website.
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5>Font</h5>
+                <p>
+                    The font determines how all of the text on the website appears.
+                    If you do not like the default font, feel free to change it to any of the others that look better!
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5>Font Size</h5>
+                <p>
+                    The font size determines how large all of the text on the website appears.
+                    If you feel like the font size is too small or too large, feel free to change it so it looks better to you! 
                 </p>
             </li>
         </ul>
@@ -94,16 +117,25 @@
     "use strict";
     const darkModeSwitch = document.getElementById("darkModeSwitch");
     const fontSwitch = document.getElementById("fontSwitch");
+    const fontSizeSwitch = document.getElementById("fontSizeSwitch");
 
     if (theme === "dark") darkModeSwitch.checked = true;
     if (font) fontSwitch.selected = font;
+    if (fontSize) fontSizeSwitch.selected = fontSize;
 
     darkModeSwitch.addEventListener("change", switchColorScheme);
     fontSwitch.addEventListener("change", changeFont);
+    fontSizeSwitch.addEventListener("change", changeFontSize);
 
     function changeFont()
     {
         localStorage.setItem("font", this.value);
         document.body.style.fontFamily = `${this.value}, sans-serif`;
+    }
+
+    function changeFontSize()
+    {
+        localStorage.setItem("fontSize", this.value);
+        bodyClasses.toggle("small-font");
     }
 </script>
