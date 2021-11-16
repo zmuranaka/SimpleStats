@@ -53,3 +53,17 @@ body.dark-mode a.dropdown-item {
 body.dark-mode a.dropdown-item:hover {
     background: #555;
 }
+
+/* Small font styles */
+
+body.small-font {
+    font-size: 0.85rem;
+}
+
+body.small-font .navbar-brand {
+    font-size: 1.25rem;
+}
+
+body.small-font a.nav-link {
+    font-size: 1rem;
+}
