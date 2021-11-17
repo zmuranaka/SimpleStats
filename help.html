@@ -51,59 +51,71 @@
             </div>
         </div>
     </nav>
+    <noscript>
+        <p class="text-danger bg-white text-center">
+            Uh-oh! It looks like JavaScript is disabled in your browser! SimpleStats needs JavaScript to function properly.
+            <br>
+            Need some help figuring out how to enable JavaScript? No problem. <a href="https://enable-javascript.com/" target="_blank">This website</a> will help you!
+        </p>
+    </noscript>
 
     <h1 class="display-1 text-center py-5">Help</h1>
-    <div class="container text-center">
+    <main class="container text-center">
         <p>
             Do you need to make SimpleStats work even better for you?
             SimpleStats has several options that can be customized to make it as usable and accessible as possible.
             Feel free to change any of the settings below.
             An explanation of what all of the settings mean is at the bottom of the page.
         </p>
-        <h4>Settings</h4>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="darkModeSwitch" role="button">
-            <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
-        </div>
-        <label class="form-label" for="fontSwitch">Font</label>
-        <select class="form-select" id="fontSwitch">
-            <option>Arial</option>
-            <option>Calibri</option>
-            <option>Segoe UI</option>
-            <option>Tahoma</option>
-            <option>Times New Roman</option>
-            <option>Verdana</option>
-        </select>
-        <label class="form-label" for="fontSizeSwitch">Font Size</label>
-        <select class="form-select" id="fontSizeSwitch">
-            <option>Small</option>
-            <option>Normal</option>
-        </select>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <h5>Dark Mode</h5>
-                <p>
-                    Toggling the dark mode option will change the color scheme of the website so it uses darker colors.
-                    This can be easier on the eyes, especially at nighttime.
-                    By default, if your operating system's default app mode is set to dark, then so will the website.
-                </p>
-            </li>
-            <li class="list-group-item">
-                <h5>Font</h5>
-                <p>
-                    The font determines how all of the text on the website appears.
-                    If you do not like the default font, feel free to change it to any of the others that look better!
-                </p>
-            </li>
-            <li class="list-group-item">
-                <h5>Font Size</h5>
-                <p>
-                    The font size determines how large all of the text on the website appears.
-                    If you feel like the font size is too small or too large, feel free to change it so it looks better to you! 
-                </p>
-            </li>
-        </ul>
-    </div>
+        <section class="mt-4">
+            <h2>Settings</h2>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="darkModeSwitch" role="button">
+                <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
+            </div>
+            <label class="form-label mt-3" for="fontSwitch">Font</label>
+            <select class="form-select" id="fontSwitch">
+                <option>Arial</option>
+                <option>Calibri</option>
+                <option>Segoe UI</option>
+                <option>Tahoma</option>
+                <option>Times New Roman</option>
+                <option>Verdana</option>
+            </select>
+            <label class="form-label mt-3" for="fontSizeSwitch">Font Size</label>
+            <select class="form-select" id="fontSizeSwitch">
+                <option>Small</option>
+                <option>Normal</option>
+            </select>
+        </section>
+        <section class="mt-5">
+            <h3>What do these setting mean?</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h4>Dark Mode</h4>
+                    <p>
+                        Toggling the dark mode option will change the color scheme of the website so it uses darker colors.
+                        This can be easier on the eyes, especially at nighttime.
+                        By default, if your operating system's default app mode is set to dark, then so will the website.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Font</h4>
+                    <p>
+                        The font determines how all of the text on the website appears.
+                        If you do not like the default font, feel free to change it to any of the others that look better!
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Font Size</h4>
+                    <p>
+                        The font size determines how large all of the text on the website appears.
+                        If you feel like the font size is too small or too large, feel free to change it so it looks better to you! 
+                    </p>
+                </li>
+            </ul>
+        </section>
+    </main>
 </body>
 
 </html>
