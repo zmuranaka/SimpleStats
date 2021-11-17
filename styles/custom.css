@@ -46,6 +46,10 @@ body.dark-mode ul.dropdown-menu {
     color: white;
 }
 
+body.dark-mode select {
+    background-color: #ccc;
+}
+
 body.dark-mode a.dropdown-item {
     color: white;
 }

@@ -65,24 +65,20 @@
             <input class="form-check-input" type="checkbox" id="darkModeSwitch" role="button">
             <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
         </div>
-        <div class="input-group w-75 mx-auto my-2">
-            <select class="form-select me-2" id="fontSwitch">
-                <option>Arial</option>
-                <option>Calibri</option>
-                <option>Segoe UI</option>
-                <option>Tahoma</option>
-                <option>Times New Roman</option>
-                <option>Verdana</option>
-            </select>
-            <label class="form-label" for="fontSwitch">Font</label>
-        </div>
-        <div class="input-group w-75 mx-auto my-2">
-            <select class="form-select me-2" id="fontSizeSwitch">
-                <option>Small</option>
-                <option>Normal</option>
-            </select>
-            <label class="form-label" for="fontSizeSwitch">Font Size</label>
-        </div>
+        <label class="form-label" for="fontSwitch">Font</label>
+        <select class="form-select" id="fontSwitch">
+            <option>Arial</option>
+            <option>Calibri</option>
+            <option>Segoe UI</option>
+            <option>Tahoma</option>
+            <option>Times New Roman</option>
+            <option>Verdana</option>
+        </select>
+        <label class="form-label" for="fontSizeSwitch">Font Size</label>
+        <select class="form-select" id="fontSizeSwitch">
+            <option>Small</option>
+            <option>Normal</option>
+        </select>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <h5>Dark Mode</h5>
@@ -120,8 +116,8 @@
     const fontSizeSwitch = document.getElementById("fontSizeSwitch");
 
     if (theme === "dark") darkModeSwitch.checked = true;
-    if (font) fontSwitch.selected = font;
-    if (fontSize) fontSizeSwitch.selected = fontSize;
+    if (font) fontSwitch.value = font;
+    if (fontSize) fontSizeSwitch.value = fontSize;
 
     darkModeSwitch.addEventListener("change", switchColorScheme);
     fontSwitch.addEventListener("change", changeFont);
