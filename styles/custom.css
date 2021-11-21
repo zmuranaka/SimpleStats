@@ -46,7 +46,7 @@ body.dark-mode ul.dropdown-menu {
     color: white;
 }
 
-body.dark-mode select {
+body.dark-mode input[type=number], body.dark-mode select {
     background-color: #ccc;
 }
 
