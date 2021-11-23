@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +8,6 @@
     <link href="styles/custom.css" rel="stylesheet">
     <title>SimpleStats | Help</title>
 </head>
-
 <body>
     <nav class="navbar navbar-dark navbar-expand-md py-3">
         <div class="container-fluid">
@@ -50,7 +48,6 @@
             Need some help figuring out how to enable JavaScript? No problem. <a href="https://enable-javascript.com/" target="_blank">This website</a> will help you!
         </p>
     </noscript>
-
     <h1 class="display-1 text-center py-5">Help</h1>
     <main class="container text-center">
         <p>
@@ -108,34 +105,29 @@
             </ul>
         </section>
     </main>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/switchColorScheme.js"></script>
+    <script type="text/javascript">
+        "use strict";
+        const darkModeSwitch = document.getElementById("darkModeSwitch");
+        const fontSwitch = document.getElementById("fontSwitch");
+        const fontSizeSwitch = document.getElementById("fontSizeSwitch");
+        if (theme === "dark") darkModeSwitch.checked = true;
+        if (font) fontSwitch.value = font;
+        if (fontSize) fontSizeSwitch.value = fontSize;
+        darkModeSwitch.addEventListener("change", switchColorScheme);
+        fontSwitch.addEventListener("change", changeFont);
+        fontSizeSwitch.addEventListener("change", changeFontSize);
+        function changeFont()
+        {
+            localStorage.setItem("font", this.value);
+            document.body.style.fontFamily = `${this.value}, sans-serif`;
+        }
+        function changeFontSize()
+        {
+            localStorage.setItem("fontSize", this.value);
+            bodyClasses.toggle("small-font");
+        }
+    </script>
 </body>
-
 </html>
-<script src="scripts/settings.js"></script>
-<script src="scripts/switchColorScheme.js"></script>
-<script type="text/javascript">
-    "use strict";
-    const darkModeSwitch = document.getElementById("darkModeSwitch");
-    const fontSwitch = document.getElementById("fontSwitch");
-    const fontSizeSwitch = document.getElementById("fontSizeSwitch");
-
-    if (theme === "dark") darkModeSwitch.checked = true;
-    if (font) fontSwitch.value = font;
-    if (fontSize) fontSizeSwitch.value = fontSize;
-
-    darkModeSwitch.addEventListener("change", switchColorScheme);
-    fontSwitch.addEventListener("change", changeFont);
-    fontSizeSwitch.addEventListener("change", changeFontSize);
-
-    function changeFont()
-    {
-        localStorage.setItem("font", this.value);
-        document.body.style.fontFamily = `${this.value}, sans-serif`;
-    }
-
-    function changeFontSize()
-    {
-        localStorage.setItem("fontSize", this.value);
-        bodyClasses.toggle("small-font");
-    }
-</script>

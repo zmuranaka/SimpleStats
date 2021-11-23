@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +8,6 @@
     <link href="styles/custom.css" rel="stylesheet">
     <title>SimpleStats | Statistics, made simple</title>
 </head>
-
 <body>
     <nav class="navbar navbar-dark navbar-expand-md py-3">
         <div class="container-fluid">
@@ -50,44 +48,38 @@
             Need some help figuring out how to enable JavaScript? No problem. <a href="https://enable-javascript.com/" target="_blank">This website</a> will help you!
         </p>
     </noscript>
-
     <h1 class="display-1 text-center my-5 py-5">SimpleStats</h1>
     <h2 class="text-center">Statistics, made simple</h2>
-
     <figure class="position-absolute bottom-0 ms-2" role="button">
         <img src="images/moon.png" alt="Click to change the theme of the website" class="ms-2 mb-2">
         <figcaption>Try out dark mode</figcaption>
     </figure>
-</body>
-
-</html>
-<script src="scripts/switchColorScheme.js"></script>
-<script src="scripts/settings.js"></script>
-<script type="text/javascript">
-    "use strict";
-    const fig = document.querySelector("figure");
-    const figImg = document.querySelector("figure img");
-    const figCap = document.querySelector("figcaption");
-
-    if (theme === "dark")
-    {
-        figImg.src = "images/sun.png";
-        figCap.innerText = "Try out light mode";   
-    }
-
-    fig.addEventListener("click", changeFigAndTheme);
-
-    function changeFigAndTheme()
-    {
-        if (switchColorScheme() == "dark")
+    <script src="scripts/switchColorScheme.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script type="text/javascript">
+        "use strict";
+        const fig = document.querySelector("figure");
+        const figImg = document.querySelector("figure img");
+        const figCap = document.querySelector("figcaption");
+        if (theme === "dark")
         {
             figImg.src = "images/sun.png";
-            figCap.innerText = "Try out light mode";
+            figCap.innerText = "Try out light mode";   
         }
-        else
+        fig.addEventListener("click", changeFigAndTheme);
+        function changeFigAndTheme()
         {
-            figImg.src = "images/moon.png";
-            figCap.innerText = "Try out dark mode";
+            if (switchColorScheme() == "dark")
+            {
+                figImg.src = "images/sun.png";
+                figCap.innerText = "Try out light mode";
+            }
+            else
+            {
+                figImg.src = "images/moon.png";
+                figCap.innerText = "Try out dark mode";
+            }
         }
-    }
-</script>
+    </script>
+</body>
+</html>
