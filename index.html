@@ -20,16 +20,16 @@
                     <li class="nav-item"><a class="nav-link text-white" aria-current="page" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link text-white" aria-current="page" href="help.html">Help</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Continuous Distributions</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="continuousDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Continuous Distributions</a>
+                        <ul class="dropdown-menu" aria-labelledby="continuousDropdown">
                             <li><a class="dropdown-item" href="chi-squared.html">Chi-Squared</a></li>
                             <li><a class="dropdown-item" href="gamma.html">Gamma</a></li>
                             <li><a class="dropdown-item" href="normal.html">Normal</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Discrete Distributions</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="discreteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Discrete Distributions</a>
+                        <ul class="dropdown-menu" aria-labelledby="discreteDropdown">
                             <li><a class="dropdown-item" href="binomial.html">Binomial</a></li>
                             <li><a class="dropdown-item" href="geometric.html">Geometric</a></li>
                             <li><a class="dropdown-item" href="hypergeometric.html">Hypergeometric</a></li>
@@ -50,13 +50,13 @@
     </noscript>
     <h1 class="display-1 text-center my-5 py-5">SimpleStats</h1>
     <h2 class="text-center">Statistics, made simple</h2>
-    <figure class="position-absolute bottom-0 ms-2" role="button">
+    <figure class="position-absolute bottom-0 ms-2 cursor-pointer" tabindex="0">
         <img src="images/moon.png" alt="Click to change the theme of the website" class="ms-2 mb-2">
         <figcaption>Try out dark mode</figcaption>
     </figure>
     <script src="scripts/switchColorScheme.js"></script>
     <script src="scripts/settings.js"></script>
-    <script type="text/javascript">
+    <script>
         "use strict";
         const fig = document.querySelector("figure");
         const figImg = document.querySelector("figure img");
@@ -67,17 +67,22 @@
             figCap.innerText = "Try out light mode";   
         }
         fig.addEventListener("click", changeFigAndTheme);
-        function changeFigAndTheme()
+        fig.addEventListener("keypress", changeFigAndTheme);
+        function changeFigAndTheme(e)
         {
-            if (switchColorScheme() == "dark")
+            console.log(e, e.key);
+            if (e.type === "click" || (e.type === "keypress" && e.key === "Enter"))
             {
-                figImg.src = "images/sun.png";
-                figCap.innerText = "Try out light mode";
-            }
-            else
-            {
-                figImg.src = "images/moon.png";
-                figCap.innerText = "Try out dark mode";
+                if (switchColorScheme() == "dark")
+                {
+                    figImg.src = "images/sun.png";
+                    figCap.innerText = "Try out light mode";
+                }
+                else
+                {
+                    figImg.src = "images/moon.png";
+                    figCap.innerText = "Try out dark mode";
+                }
             }
         }
     </script>
