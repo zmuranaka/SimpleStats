@@ -76,14 +76,22 @@
     <script src="scripts/settings.js"></script>
     <script src="scripts/calculate.js"></script>
     <script>
-        calculateBtn.addEventListener("click", calculate );
+        calculateBtn.addEventListener("click", calculate);
         function calculate()
         {
             let n = parseInt(document.getElementById("numTrials").value);
             let x = parseInt(document.getElementById("numSuccesses").value);
             let p = parseFloat(document.getElementById("probSuccess").value);
-            let probabilityDensity = combination(n, x) * (p ** x) * ((1 - p) ** (n - x));
-            calculateResultsCaption.innerText = `Probability of Exactly ${x} successes: ${probabilityDensity}`;
+            if (n >= 0 && x <= n && x >= 0 && p >= 0 && p <= 1)
+            {
+                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${combination(n, x) * (p ** x) * ((1 - p) ** (n - x))}<br>`;
+                calculateResultsCaption.innerHTML += `Mean: ${n * p}<br>`;
+                calculateResultsCaption.innerHTML += `Variance: ${n * p * (1 - p)}<br>`;
+            }
+            else
+            {
+                calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='binomial-help.html'>the binomial distribution help page</a> if you need help.";
+            }
         }
     </script>
 </body>
