@@ -74,5 +74,17 @@
         </div>
     </main>
     <script src="scripts/settings.js"></script>
+    <script src="scripts/calculate.js"></script>
+    <script>
+        calculateBtn.addEventListener("click", calculate );
+        function calculate()
+        {
+            let n = parseInt(document.getElementById("numTrials").value);
+            let x = parseInt(document.getElementById("numSuccesses").value);
+            let p = parseFloat(document.getElementById("probSuccess").value);
+            let probabilityDensity = combination(n, x) * (p ** x) * ((1 - p) ** (n - x));
+            calculateResultsCaption.innerText = `Probability of Exactly ${x} successes: ${probabilityDensity}`;
+        }
+    </script>
 </body>
 </html>

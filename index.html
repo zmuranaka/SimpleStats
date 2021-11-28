@@ -70,7 +70,6 @@
         fig.addEventListener("keypress", changeFigAndTheme);
         function changeFigAndTheme(e)
         {
-            console.log(e, e.key);
             if (e.type === "click" || (e.type === "keypress" && e.key === "Enter"))
             {
                 if (switchColorScheme() == "dark")
