@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="styles/custom.css" rel="stylesheet">
-    <title>SimpleStats | Chi-Squared Distribution</title>
+    <title>SimpleStats | Uniform Distribution</title>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md py-3">
@@ -23,9 +23,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="continuousDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Continuous Distributions</a>
                         <ul class="dropdown-menu" aria-labelledby="continuousDropdown">
-                            <li><a class="dropdown-item" href="chi-squared.html">Chi-Squared</a></li>
-                            <li><a class="dropdown-item" href="exponential.html">Exponential</a></li>
                             <li><a class="dropdown-item" href="normal.html">Normal</a></li>
+                            <li><a class="dropdown-item" href="exponential.html">Exponential</a></li>
+                            <li><a class="dropdown-item" href="uniform.html">Uniform</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -49,19 +49,19 @@
             Need some help figuring out how to enable JavaScript? No problem. <a href="https://enable-javascript.com/" target="_blank">This website</a> will help you!
         </p>
     </noscript>
-    <h1 class="display-1 text-center py-5">Chi-Squared Distribution</h1>
+    <h1 class="display-1 text-center py-5">Uniform Distribution</h1>
     <main class="container text-center">
         <div class="row">
             <div class="col-md-6">
                 <label class="form-label" for="degreesFreedom">Degrees of Freedom (𝛾)</label>
                 <input class="form-control" type="number" id="degreesFreedom" value="0" min="0">
-                <label class="form-label mt-3" for="chiSquaredValue">Chi-Squared Value (𝜒)</label>
-                <input class="form-control" type="number" id="chiSquaredValue" value="0" min="0" step=".05">
+                <label class="form-label mt-3" for="uniformSquaredValue">Uniform Value (𝜒)</label>
+                <input class="form-control" type="number" id="uniformSquaredValue" value="0" min="0" step=".05">
                 <button class="btn btn-primary mt-3">Calculate</button>
                 <aside class="mt-3">
                     Need some help understanding this distribution?
                     <br>
-                    Visit <a href="chi-squared-help.html">the chi-squared distribution help page</a>.
+                    Visit <a href="uniform-help.html">the uniform distribution help page</a>.
                 </aside>
             </div>
             <div class="col-md-6">
@@ -78,7 +78,7 @@
         function calculate()
         {
             let y = parseInt(document.getElementById("degreesFreedom").value);
-            let x = parseFloat(document.getElementById("chiSquaredValue").value);
+            let x = parseFloat(document.getElementById("uniformSquaredValue").value);
             if (y >= 0 && x > 0)
             {
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${(1 / (factorial()))}<br>`;
@@ -89,11 +89,6 @@
             {
                 calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='binomial-help.html'>the binomial distribution help page</a> if you need help.";
             }
-        }
-        function gamma(num)
-        {
-            if (num == 0.5) return Math.sqrt(Math.PI);
-            return num * gamma(num-1);
         }
     </script>
 </body>
