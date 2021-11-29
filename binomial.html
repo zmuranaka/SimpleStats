@@ -82,11 +82,11 @@
             let n = parseInt(document.getElementById("numTrials").value);
             let x = parseInt(document.getElementById("numSuccesses").value);
             let p = parseFloat(document.getElementById("probSuccess").value);
-            if (n >= 0 && x <= n && x >= 0 && p >= 0 && p <= 1)
+            if (n >= x && n > 0 && x >= 0 && p >= 0 && p <= 1)
             {
-                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${combination(n, x) * (p ** x) * ((1 - p) ** (n - x))}<br>`;
+                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${combination(n,x) * (p**x) * ((1-p) ** (n-x))}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${n * p}<br>`;
-                calculateResultsCaption.innerHTML += `Variance: ${n * p * (1 - p)}<br>`;
+                calculateResultsCaption.innerHTML += `Variance: ${n * p * (1-p)}<br>`;
             }
             else
             {

@@ -53,7 +53,7 @@
     <main class="container text-center">
         <div class="row">
             <div class="col-md-6">
-                <label class="form-label" for="numTrials">Number of Trials (n)</label>
+                <label class="form-label" for="numTrials">Number of Trials (x)</label>
                 <input class="form-control" type="number" id="numTrials" value="0" min="0">
                 <label class="form-label mt-3" for="numSuccesses">Number of Successes (r)</label>
                 <input class="form-control" type="number" id="numSuccesses" value="0" min="0">
@@ -75,5 +75,24 @@
     </main>
     <script src="scripts/settings.js"></script>
     <script src="scripts/calculate.js"></script>
+    <script>
+        calculateBtn.addEventListener("click", calculate);
+        function calculate()
+        {
+            let x = parseInt(document.getElementById("numTrials").value);
+            let r = parseInt(document.getElementById("numSuccesses").value);
+            let p = parseFloat(document.getElementById("probSuccess").value);
+            if (x >= r && x > 0 && r >= 0 && p > 0 && p <= 1)
+            {
+                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Trials Until ${r} Successes: ${combination(x-1, r-1) * ((1-p) ** (x-r)) * (p**r)}<br>`;
+                calculateResultsCaption.innerHTML += `Mean: ${r / p}<br>`;
+                calculateResultsCaption.innerHTML += `Variance: ${r * (1-p) / (p*p)}<br>`;
+            }
+            else
+            {
+                calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='geometric-help.html'>the geometric distribution help page</a> if you need help.";
+            }
+        }
+    </script>
 </body>
 </html>

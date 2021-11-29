@@ -32,9 +32,12 @@ function combination(n, r)
         bottom *= r;
 
         let gcd = greatestCommonDenominator(top, bottom);
-        
-        top /= gcd;
-        bottom /= gcd;
+
+        if (gcd > 1)
+        {
+            top /= gcd;
+            bottom /= gcd;
+        }
 
         n--;
         r--;

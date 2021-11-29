@@ -53,8 +53,8 @@
     <main class="container text-center">
         <div class="row">
             <div class="col-md-6">
-                <label class="form-label" for="variance">Expected Value and Variance (k)</label>
-                <input class="form-control" type="number" id="variance" value="0" min="0">
+                <label class="form-label" for="evAndVariance">Expected Value and Variance (k)</label>
+                <input class="form-control" type="number" id="evAndVariance" value="0" min="0" step=".05">
                 <label class="form-label mt-3" for="numOccurrences">Number of Occurrences (x)</label>
                 <input class="form-control" type="number" id="numOccurrences" value="0" min="0">
                 <button class="btn btn-primary mt-3">Calculate</button>
@@ -73,5 +73,30 @@
     </main>
     <script src="scripts/settings.js"></script>
     <script src="scripts/calculate.js"></script>
+    <script>
+        calculateBtn.addEventListener("click", calculate);
+        function calculate()
+        {
+            let k = parseFloat(document.getElementById("evAndVariance").value);
+            let x = parseInt(document.getElementById("numOccurrences").value);
+            if (k > 0 && x >= 0)
+            {
+                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Occurrences: ${Math.exp(-k) * (k**x) / factorial(x)}<br>`;
+                calculateResultsCaption.innerHTML += `Mean: ${k}<br>`;
+                calculateResultsCaption.innerHTML += `Variance: ${k}<br>`;
+            }
+            else
+            {
+                calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='poisson-help.html'>the poisson distribution help page</a> if you need help.";
+            }
+        }
+        function factorial(num)
+        {
+            if (num <= 1) return 1;
+            let result = 2;
+            for (let i = 3; i <= num; i++) result *= i;
+            return result;
+        }
+    </script>
 </body>
 </html>
