@@ -22,30 +22,22 @@ function greatestCommonDenominator(num1, num2)
 
 function combination(n, r)
 {
-    try
+    if (n <= 0 || r <= 0 || n <= r) return 1;
+    if (n - r < r) r = n - r;
+    let top = 1;
+    let bottom = 1;
+    while (r)
     {
-        if (n < r) throw 1;
-        if (n - r < r) r = n - r;
-        let top = 1;
-        let bottom = 1;
-        while (r)
-        {
-            top *= n;
-            bottom *= r;
+        top *= n;
+        bottom *= r;
 
-            let gcd = greatestCommonDenominator(top, bottom);
-            
-            if (gcd == 0) return 1;
-            top /= gcd;
-            bottom /= gcd;
+        let gcd = greatestCommonDenominator(top, bottom);
+        
+        top /= gcd;
+        bottom /= gcd;
 
-            n--;
-            r--;
-        }
-        return top;
+        n--;
+        r--;
     }
-    catch(err)
-    {
-        return 1;
-    }
+    return top / bottom;
 }
