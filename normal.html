@@ -53,14 +53,12 @@
     <main class="container text-center">
         <div class="row">
             <div class="col-md-6">
-                <label class="form-label" for="lowerBound">Lower Bound (x<sub>1</sub>)</label>
-                <input class="form-control" type="number" id="lowerBound" value="-1" step=".05">
-                <label class="form-label mt-3" for="upperBound">Upper Bound (x<sub>2</sub>)</label>
-                <input class="form-control" type="number" id="upperBound" value="1" step=".05">
-                <label class="form-label mt-3" for="mean">Mean (𝜇)</label>
+                <label class="form-label" for="mean">Mean (𝜇)</label>
                 <input class="form-control" type="number" id="mean" value="0" step=".05">
                 <label class="form-label mt-3" for="standardDeviation">Standard Deviation (𝜎)</label>
                 <input class="form-control" type="number" id="standardDeviation" value="1" step=".05">
+                <label class="form-label mt-3" for="value">Value of Interest (x)</label>
+                <input class="form-control" type="number" id="value" value="0" step=".05">
                 <button class="btn btn-primary mt-3">Calculate</button>
                 <aside class="mt-3">
                     Need some help understanding this distribution?
@@ -77,5 +75,24 @@
     </main>
     <script src="scripts/settings.js"></script>
     <script src="scripts/calculate.js"></script>
+    <script>
+        calculateBtn.addEventListener("click", calculate);
+        function calculate()
+        {
+            let x = parseFloat(document.getElementById("value").value);
+            let u = parseFloat(document.getElementById("mean").value);
+            let o = parseFloat(document.getElementById("standardDeviation").value);
+            if (o > 0)
+            {
+                calculateResultsCaption.innerHTML = `Probability Density of ${x}: ${(1 / (o * Math.sqrt(2*Math.PI))) * Math.exp(((x-u)*(x-u))/(-2*o*o))}<br>`;
+                calculateResultsCaption.innerHTML += `Mean: ${u}<br>`;
+                calculateResultsCaption.innerHTML += `Variance: ${o*o}<br>`;
+            }
+            else
+            {
+                calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='uniform-help.html'>the uniform distribution help page</a> if you need help.";
+            }
+        }
+    </script>
 </body>
 </html>

@@ -53,10 +53,10 @@
     <main class="container text-center">
         <div class="row">
             <div class="col-md-6">
-                <label class="form-label" for="popMean">Population Mean (𝛽)</label>
-                <input class="form-control" type="number" id="popMean" value="0" min="0">
-                <label class="form-label mt-3" for="exponentialValue">Exponential Value (x)</label>
-                <input class="form-control" type="number" id="exponentialValue" value="0" min="0">
+                <label class="form-label" for="mean">Mean (𝛽)</label>
+                <input class="form-control" type="number" id="mean" value="0" min="0" step=".05">
+                <label class="form-label mt-3" for="value">Value of Interest (x)</label>
+                <input class="form-control" type="number" id="value" value="0" min="0" step=".05">
                 <button class="btn btn-primary mt-3">Calculate</button>
                 <aside class="mt-3">
                     Need some help understanding this distribution?
@@ -73,5 +73,23 @@
     </main>
     <script src="scripts/settings.js"></script>
     <script src="scripts/calculate.js"></script>
+    <script>
+        calculateBtn.addEventListener("click", calculate);
+        function calculate()
+        {
+            let B = parseFloat(document.getElementById("mean").value);
+            let x = parseFloat(document.getElementById("value").value);
+            if (B > 0 && x > 0)
+            {
+                calculateResultsCaption.innerHTML = `Probability Density of ${x}: ${(1/B) * Math.exp(-x/B)}<br>`;
+                calculateResultsCaption.innerHTML += `Mean: ${B}<br>`;
+                calculateResultsCaption.innerHTML += `Variance: ${B*B}<br>`;
+            }
+            else
+            {
+                calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='uniform-help.html'>the uniform distribution help page</a> if you need help.";
+            }
+        }
+    </script>
 </body>
 </html>
