@@ -82,7 +82,6 @@
             let x = parseFloat(document.getElementById("value").value);
             let u = parseFloat(document.getElementById("mean").value);
             let o = parseFloat(document.getElementById("standardDeviation").value);
-            console.log(x);
             if (!isNaN(x) && !isNaN(u) && o > 0)
             {
                 calculateResultsCaption.innerHTML = `Probability Density of ${x}: ${(1 / (o * Math.sqrt(2*Math.PI))) * Math.exp(((x-u)*(x-u))/(-2*o*o))}<br>`;

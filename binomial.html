@@ -75,8 +75,18 @@
     </main>
     <script src="scripts/settings.js"></script>
     <script src="scripts/calculate.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
         calculateBtn.addEventListener("click", calculate);
+        google.charts.load('current', {'packages':['corechart']});
+        var chart = null;
+        var points = [["Successes", "Probability"]];
+        function drawGraph()
+        {
+            if (chart) chart.clearChart();
+            chart = new google.visualization.SteppedAreaChart(calculateResultsFig);
+            chart.draw(google.visualization.arrayToDataTable(points), {legend: {position: "none"}, hAxis: {title: "Successes"}, vAxis: {title: "Probability"}});
+        }
         function calculate()
         {
             let n = parseInt(document.getElementById("numTrials").value);
@@ -84,13 +94,26 @@
             let p = parseFloat(document.getElementById("probSuccess").value);
             if (n >= x && n > 0 && x >= 0 && p >= 0 && p <= 1)
             {
+                let probability = 1;
+                let i = 0;
+                points = [["Successes", "Probability"]];
+                while (x+10 > i || probability > 0.001)
+                {
+                    probability = combination(n,i) * (p**i) * ((1-p) ** (n-i));
+                    points.push([i, probability]);
+                    i++;
+                }
+                drawGraph();
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${combination(n,x) * (p**x) * ((1-p) ** (n-x))}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${n * p}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${n * p * (1-p)}<br>`;
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
             else
             {
+                if (chart) chart.clearChart();
                 calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='binomial-help.html'>the binomial distribution help page</a> if you need help.";
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
         }
     </script>
