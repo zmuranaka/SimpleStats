@@ -76,19 +76,40 @@
     <script src="scripts/calculate.js"></script>
     <script>
         calculateBtn.addEventListener("click", calculate);
+        var points = [["Occurrences", "Probability"]];
+        function drawGraph()
+        {
+            if (graph) graph.clearChart();
+            graph = new google.visualization.SteppedAreaChart(calculateResultsFig);
+            graph.draw(google.visualization.arrayToDataTable(points), {legend: {position: "none"}, hAxis: {title: "Occurrences"}, vAxis: {title: "Probability"}});
+        }
         function calculate()
         {
             let k = parseFloat(document.getElementById("evAndVariance").value);
             let x = parseInt(document.getElementById("numOccurrences").value);
             if (k > 0 && x >= 0)
             {
-                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Occurrences: ${Math.exp(-k) * (k**x) / factorial(x)}<br>`;
+                let currentProbability = 0;
+                let xProbability = 1;
+                let i = 0;
+                points = [["Occurrences", "Probability"]];
+                while (x >= i || currentProbability > 0.001)
+                {
+                    currentProbability = Math.exp(-k) * (k**i) / factorial(i);
+                    if (i == x) xProbability = currentProbability;
+                    points.push([i++, currentProbability]);
+                }
+                drawGraph();
+                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Occurrences: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${k}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${k}<br>`;
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
             else
             {
+                if (graph) graph.clearChart();
                 calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='poisson-help.html'>the poisson distribution help page</a> if you need help.";
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
         }
         function factorial(num)
