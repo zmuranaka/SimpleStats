@@ -2,6 +2,8 @@
 var calculateBtn = document.querySelector("button.btn.btn-primary.mt-3");
 var calculateResultsFig = document.querySelector("figure.border.h-100.w-100");
 var calculateResultsCaption = document.querySelector("figure.border.h-100.w-100 figcaption");
+google.charts.load('current', {'packages':['corechart']});
+var graph = null;
 
 function greatestCommonDenominator(num1, num2)
 {
