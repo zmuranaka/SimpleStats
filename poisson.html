@@ -76,30 +76,22 @@
     <script src="scripts/calculate.js"></script>
     <script>
         calculateBtn.addEventListener("click", calculate);
-        var points = [["Occurrences", "Probability"]];
-        function drawGraph()
-        {
-            if (graph) graph.clearChart();
-            graph = new google.visualization.SteppedAreaChart(calculateResultsFig);
-            graph.draw(google.visualization.arrayToDataTable(points), {legend: {position: "none"}, hAxis: {title: "Occurrences"}, vAxis: {title: "Probability"}});
-        }
         function calculate()
         {
             let k = parseFloat(document.getElementById("evAndVariance").value);
             let x = parseInt(document.getElementById("numOccurrences").value);
             if (k > 0 && x >= 0)
             {
-                let currProbability = 0;
-                let xProbability = 1;
-                let i = 0;
-                points = [["Occurrences", "Probability"]];
+                let currProbability = 0, i = 0, xAxisLow = 0, xProbability = 1;
+                let points = [["Occurrences", "Probability"]];
                 while (x >= i || currProbability > 0.001)
                 {
                     currProbability = Math.exp(-k) * (k**i) / factorial(i);
                     if (i == x) xProbability = currProbability;
+                    if (currProbability > 0.001 && xAxisLow == 0) xAxisLow = i;
                     points.push([i++, currProbability]);
                 }
-                drawGraph();
+                drawGraph(xAxisLow, "Occurrences", points);
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Occurrences: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${k}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${k}<br>`;
