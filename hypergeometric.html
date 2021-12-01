@@ -95,15 +95,15 @@
             let x = parseInt(document.getElementById("sampleSuccesses").value);
             if (N >= r && N >= n && r >= x && n >= x && N > 0 && r >= 0 && n > 0 && x >= 0)
             {
-                let currentProbability = 0;
+                let currProbability = 0;
                 let xProbability = 1;
                 let i = 0;
                 points = [["Sample Successes", "Probability"]];
                 while (r >= i && n >= i)
                 {
-                    currentProbability = (combination(r,i) * combination(N-r, n-i)) / combination(N,n);
-                    if (i == x) xProbability = currentProbability;
-                    points.push([i++, currentProbability]);
+                    currProbability = (combination(r,i) * combination(N-r, n-i)) / combination(N,n);
+                    if (i == x) xProbability = currProbability;
+                    points.push([i++, currProbability]);
                 }
                 drawGraph();
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${xProbability}<br>`;

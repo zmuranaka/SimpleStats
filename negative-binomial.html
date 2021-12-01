@@ -92,15 +92,15 @@
             let p = parseFloat(document.getElementById("probSuccess").value);
             if (x >= r && x > 0 && r >= 0 && p > 0 && p <= 1)
             {
-                let currentProbability = 0;
+                let currProbability = 0;
                 let xProbability = 1;
                 let i = r;
                 points = [["Trials", "Probability"]];
-                while (x >= i || currentProbability > 0.001)
+                while (x >= i || currProbability > 0.001)
                 {
-                    currentProbability = combination(i-1, r-1) * ((1-p) ** (i-r)) * (p**r);
-                    if (i == x) xProbability = currentProbability;
-                    points.push([i++, currentProbability]);
+                    currProbability = combination(i-1, r-1) * ((1-p) ** (i-r)) * (p**r);
+                    if (i == x) xProbability = currProbability;
+                    points.push([i++, currProbability]);
                 }
                 drawGraph(r);
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Trials Until ${r} Successes: ${xProbability}<br>`;

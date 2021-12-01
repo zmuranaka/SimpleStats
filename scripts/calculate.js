@@ -46,3 +46,10 @@ function combination(n, r)
     }
     return top / bottom;
 }
+
+function drawGraph(hAxisMin, hAxisTitle, arr)
+{
+    if (graph) graph.clearChart();
+    graph = new google.visualization.SteppedAreaChart(calculateResultsFig);
+    graph.draw(google.visualization.arrayToDataTable(arr), {legend: {position: "none"}, hAxis: {title: "Successes", viewWindow: {min: hAxisMin-1}}, vAxis: {title: hAxisTitle}});
+}

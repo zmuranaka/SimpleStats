@@ -78,13 +78,6 @@
     <script src="scripts/calculate.js"></script>
     <script>
         calculateBtn.addEventListener("click", calculate);
-        var points = [["Successes", "Probability"]];
-        function drawGraph()
-        {
-            if (graph) graph.clearChart();
-            graph = new google.visualization.SteppedAreaChart(calculateResultsFig);
-            graph.draw(google.visualization.arrayToDataTable(points), {legend: {position: "none"}, hAxis: {title: "Successes"}, vAxis: {title: "Probability"}});
-        }
         function calculate()
         {
             let n = parseInt(document.getElementById("numTrials").value);
@@ -92,19 +85,17 @@
             let p = parseFloat(document.getElementById("probSuccess").value);
             if (n >= x && n > 0 && x >= 0 && p >= 0 && p <= 1)
             {
-                let lastProbability = 0;
-                let currentProbability = 0;
-                let xProbability = 1;
-                let i = 0;
-                points = [["Successes", "Probability"]];
-                while (x > i || currentProbability > 0.001 || currentProbability > lastProbability)
+                let currProbability = 0, i = 0, lastProbability = 0, xAxisLow = 0, xProbability = 1;                
+                let points = [["Successes", "Probability"]];
+                while (x >= i || currProbability > 0.001 || currProbability > lastProbability)
                 {
-                    lastProbability = currentProbability;
-                    currentProbability = combination(n,i) * (p**i) * ((1-p) ** (n-i));
-                    if (i == x) xProbability = currentProbability;
-                    points.push([i++, currentProbability]);
+                    lastProbability = currProbability;
+                    currProbability = combination(n,i) * (p**i) * ((1-p) ** (n-i));
+                    if (i == x) xProbability = currProbability;
+                    if (currProbability > 0.001 && xAxisLow == 0) xAxisLow = i;
+                    points.push([i++, currProbability]);
                 }
-                drawGraph();
+                drawGraph(xAxisLow, "Successes", points);
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${n * p}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${n * p * (1-p)}<br>`;

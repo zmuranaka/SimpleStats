@@ -89,15 +89,15 @@
             let x = parseInt(document.getElementById("numOccurrences").value);
             if (k > 0 && x >= 0)
             {
-                let currentProbability = 0;
+                let currProbability = 0;
                 let xProbability = 1;
                 let i = 0;
                 points = [["Occurrences", "Probability"]];
-                while (x >= i || currentProbability > 0.001)
+                while (x >= i || currProbability > 0.001)
                 {
-                    currentProbability = Math.exp(-k) * (k**i) / factorial(i);
-                    if (i == x) xProbability = currentProbability;
-                    points.push([i++, currentProbability]);
+                    currProbability = Math.exp(-k) * (k**i) / factorial(i);
+                    if (i == x) xProbability = currProbability;
+                    points.push([i++, currProbability]);
                 }
                 drawGraph();
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Occurrences: ${xProbability}<br>`;
