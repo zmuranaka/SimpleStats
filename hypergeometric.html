@@ -90,14 +90,14 @@
             {
                 let currProbability = 0, i = 0, xAxisLow = 0, xProbability = 1;
                 let points = [["Sample Successes", "Probability"]];
-                while (x >= i || currProbability > 0.001)
+                while (x >= i || (r >= i && n >= i))
                 {
                     currProbability = (combination(r,i) * combination(N-r, n-i)) / combination(N,n);
                     if (i == x) xProbability = currProbability;
                     if (currProbability > 0.001 && xAxisLow == 0) xAxisLow = i;
                     points.push([i++, currProbability]);
                 }
-                drawGraph(xAxisLow, "Sample Successes", points);
+                drawGraph(xAxisLow, "Sample Successes", points, true);
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${n * r / N}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${n * r / N * ((N-r) / N) * ((N-n) / (N-1))}<br>`;

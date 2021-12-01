@@ -47,9 +47,9 @@ function combination(n, r)
     return top / bottom;
 }
 
-function drawGraph(hAxisMin, hAxisTitle, arr)
+function drawGraph(hAxisMin, hAxisTitle, arr, discrete)
 {
     if (graph) graph.clearChart();
-    graph = new google.visualization.SteppedAreaChart(calculateResultsFig);
+    graph = discrete ? new google.visualization.SteppedAreaChart(calculateResultsFig) : new google.visualization.AreaChart(calculateResultsFig);
     graph.draw(google.visualization.arrayToDataTable(arr), {legend: {position: "none"}, hAxis: {title: hAxisTitle, viewWindow: {min: hAxisMin-1}}, vAxis: {title: "Probability"}});
 }

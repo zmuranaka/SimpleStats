@@ -95,7 +95,7 @@
                     if (currProbability > 0.001 && xAxisLow == 0) xAxisLow = i;
                     points.push([i++, currProbability]);
                 }
-                drawGraph(xAxisLow, "Successes", points);
+                drawGraph(xAxisLow, "Successes", points, true);
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${n * p}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${n * p * (1-p)}<br>`;

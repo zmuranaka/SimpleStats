@@ -93,7 +93,7 @@
                     if (i == x) xProbability = currProbability;
                     points.push([i++, currProbability]);
                 }
-                drawGraph(r, "Trials", points);
+                drawGraph(r, "Trials", points, true);
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Trials Until ${r} Successes: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${r / p}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${r * (1-p) / (p*p)}<br>`;

@@ -91,7 +91,7 @@
                     if (currProbability > 0.001 && xAxisLow == 0) xAxisLow = i;
                     points.push([i++, currProbability]);
                 }
-                drawGraph(xAxisLow, "Occurrences", points);
+                drawGraph(xAxisLow, "Occurrences", points, true);
                 calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Occurrences: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${k}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${k}<br>`;
