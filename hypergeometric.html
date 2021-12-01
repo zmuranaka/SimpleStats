@@ -80,21 +80,42 @@
     <script src="scripts/calculate.js"></script>
     <script>
         calculateBtn.addEventListener("click", calculate);
+        var points = [["Sample Successes", "Probability"]];
+        function drawGraph()
+        {
+            if (graph) graph.clearChart();
+            graph = new google.visualization.SteppedAreaChart(calculateResultsFig);
+            graph.draw(google.visualization.arrayToDataTable(points), {legend: {position: "none"}, hAxis: {title: "Sample Successes"}, vAxis: {title: "Probability"}});
+        }
         function calculate()
         {
             let N = parseInt(document.getElementById("popSize").value);
             let r = parseInt(document.getElementById("popSuccesses").value);
             let n = parseInt(document.getElementById("sampleSize").value);
             let x = parseInt(document.getElementById("sampleSuccesses").value);
-            if (N >= r && N >= n && N >= x && r >= x && n >= x && N > 0 && r >= 0 && n > 0 && x >= 0)
+            if (N >= r && N >= n && r >= x && n >= x && N > 0 && r >= 0 && n > 0 && x >= 0)
             {
-                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${(combination(r,x) * combination(N-r, n-x)) / combination(N,n)}<br>`;
+                let currentProbability = 0;
+                let xProbability = 1;
+                let i = 0;
+                points = [["Sample Successes", "Probability"]];
+                while (r >= i && n >= i)
+                {
+                    currentProbability = (combination(r,i) * combination(N-r, n-i)) / combination(N,n);
+                    if (i == x) xProbability = currentProbability;
+                    points.push([i++, currentProbability]);
+                }
+                drawGraph();
+                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Successes: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${n * r / N}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${n * r / N * ((N-r) / N) * ((N-n) / (N-1))}<br>`;
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
             else
             {
+                if (graph) graph.clearChart();
                 calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='hypergeometric-help.html'>the hypergeometric distribution help page</a> if you need help.";
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
         }
     </script>
