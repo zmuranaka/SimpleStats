@@ -78,6 +78,13 @@
     <script src="scripts/calculate.js"></script>
     <script>
         calculateBtn.addEventListener("click", calculate);
+        var points = [["Trials", "Probability"]];
+        function drawGraph(minTrials)
+        {
+            if (graph) graph.clearChart();
+            graph = new google.visualization.SteppedAreaChart(calculateResultsFig);
+            graph.draw(google.visualization.arrayToDataTable(points), {legend: {position: "none"}, hAxis: {title: "Trials", viewWindow: {min: minTrials-1}}, vAxis: {title: "Probability"}});
+        }
         function calculate()
         {
             let x = parseInt(document.getElementById("numTrials").value);
@@ -85,13 +92,27 @@
             let p = parseFloat(document.getElementById("probSuccess").value);
             if (x >= r && x > 0 && r >= 0 && p > 0 && p <= 1)
             {
-                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Trials Until ${r} Successes: ${combination(x-1, r-1) * ((1-p) ** (x-r)) * (p**r)}<br>`;
+                let currentProbability = 0;
+                let xProbability = 1;
+                let i = r;
+                points = [["Trials", "Probability"]];
+                while (x >= i || currentProbability > 0.001)
+                {
+                    currentProbability = combination(i-1, r-1) * ((1-p) ** (i-r)) * (p**r);
+                    if (i == x) xProbability = currentProbability;
+                    points.push([i++, currentProbability]);
+                }
+                drawGraph(r);
+                calculateResultsCaption.innerHTML = `Probability of Exactly ${x} Trials Until ${r} Successes: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${r / p}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${r * (1-p) / (p*p)}<br>`;
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
             else
             {
+                if (graph) graph.clearChart();
                 calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='negative-binomial-help.html'>the negative binomial distribution help page</a> if you need help.";
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
         }
     </script>
