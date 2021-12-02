@@ -51,6 +51,55 @@
     </noscript>
     <h1 class="display-1 text-center py-5">Geometric Distribution Help</h1>
     <main class="container text-center">
+        <section>
+            <h2>Properties</h2>
+            <ol class="mt-4">
+                <li>A geometric distribution represents an experiment that consists of a random number of trials denoted as x. The random variable is how many trials are run before the first success.</li>
+                <li>Each of the trials in the experiment has only two results - either a success or a failure, and each has a probability of success denoted as p.</li>
+                <li>The trials are identical and independent.</li>
+            </ol>
+        </section>
+        <section class="mt-5">
+            <h3>What do these properties mean?</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h4>Random Number of Trials</h4>
+                    <p>
+                        This means that the number of trials that are going to be conducted in the experiment is unknown before the experiment is over.
+                        Because this is the random variable, it means that it is the thing in the experiment that is likely to change from experiment to experiment.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Success or Failure</h4>
+                    <p>
+                        The definition of a success in a geometric experiment is that you got whatever you were looking for.
+                        Therefore, the definition of a failure in a geometric experiment is that you did not get whatever you were looking for.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Identical and independent</h4>
+                    <p>
+                        The trials being identical and independent means that the result of one trial has no effect on any other trials.
+                        This means that the probability of a success does not change trial to trial.
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <section class="mt-4">
+            <h3>Example</h3>
+            <p>When dealing with an experiment, if you hear or see the words "before" or "until" you are probably dealing with a geometric experiment.</p>
+            <p>
+                For example, imagine you have a standard six-sided die and you are interested in how many times you have to roll it before it turns up a six.
+                This would be a geometric distribution with p = 1/6 or about 0.1667 (because there are six sides on a die and only one is a success).
+                The only thing left would be to determine how many times you would like to roll the die, and that would be x (because it is the number of trials you would like to conduct).
+                Note that you will not always conduct exactly that number of trials - there is only some probability that you will.
+        <section class="mt-4">
+            <h3>Requirements</h3>
+            <ol>
+                <li>The number of trials must be a whole number greater than zero (x = 1, 2, 3 ...).</li>
+                <li>The probability of success must be greater than or equal to zero and also less than or equal to one (1 >= p >= 0).</li>
+            </ol>
+        </section>
     </main>
     <script src="scripts/settings.js"></script>
 </body>

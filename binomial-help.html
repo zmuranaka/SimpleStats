@@ -99,15 +99,16 @@
             <p>
                 For example, imagine you have a standard deck of 52 cards and you are interested in seeing how many draws out of 10 are a face card (Jacks, Queens, and Kings).
                 10 times you will take a single card out of the deck, check if it is a face card, and then immediately replace it in the deck.
-                This would be a binomial distribution with n = 10 (because there are 10 trials), and p = 12/52 (because there are 3 face cards and 4 suits of each).
+                This would be a binomial distribution with n = 10 (because there are 10 trials), and p = 12/52 or about 0.2308 (because there are 3 face cards and 4 suits of each).
                 The only thing left would be to determine how many of those 10 cards you would like to be face cards, and that would be x (because it is the number of successes you would like).
+                Note that you will not always get exactly that number of successes - there is only some probability that you will.
             </p>
         </section>
         <section class="mt-4">
             <h3>Requirements</h3>
             <ol>
                 <li>The number of trials must be a whole number at least equal to the number of successes you are looking for and must also be greater than zero (n >= x and n > 0).</li>
-                <li>The number of successes must be a whole number greater than or equal to zero (x >= 0).</li>
+                <li>The number of successes must be a whole number greater than or equal to zero (x = 0, 1, 2 ... n).</li>
                 <li>The probability of success must be greater than or equal to zero and also less than or equal to one (1 >= p >= 0).</li>
             </ol>
         </section>
