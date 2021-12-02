@@ -51,6 +51,66 @@
     </noscript>
     <h1 class="display-1 text-center py-5">Binomial Distribution Help</h1>
     <main class="container text-center">
+        <section>
+            <h2>Properties</h2>
+            <ol class="mt-4">
+                <li>A binomial distribution represents an experiment that consists of a fixed number of trials denoted as n.</li>
+                <li>Each of the trials in the experiment has only two results - either a success or a failure, and each has a probability of success denoted as p.</li>
+                <li>The trials are identical and independent.</li>
+                <li>The random variable is the number of successes from the fixed number of trials. This random variable is denoted as x.</li>
+            </ol>
+        </section>
+        <section class="mt-5">
+            <h3>What do these properties mean?</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h4>Fixed Number of Trials</h4>
+                    <p>
+                        This means that the number of trials that are going to be conducted in the experiment are determined beforehand.
+                        Once the experiment has begun, this number will not change.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Success or Failure</h4>
+                    <p>
+                        The definition of a success in a binomial experiment is that you got whatever you were looking for.
+                        Therefore, the definition of a failure in a binomial experiment is that you did not get whatever you were looking for.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Identical and independent</h4>
+                    <p>
+                        The trials being identical and independent means that the result of one trial has no effect on any other trials.
+                        This means that the probability of a success does not change trial to trial.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Random Variable</h4>
+                    <p>
+                        The random variable is the thing in the experiment that is not determined beforehand - it is likely to change from experiment to experiment.
+                        In this case, the number of successes is the random variable, meaning that the number of successes from the experiment is unknown until the experiment is over.
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <section class="mt-4">
+            <h3>Example</h3>
+            <p>When dealing with an experiment, if you hear or see the words "with replacement" you are probably dealing with a binomial experiment.</p>
+            <p>
+                For example, imagine you have a standard deck of 52 cards and you are interested in seeing how many draws out of 10 are a face card (Jacks, Queens, and Kings).
+                10 times you will take a single card out of the deck, check if it is a face card, and then immediately replace it in the deck.
+                This would be a binomial distribution with n = 10 (because there are 10 trials), and p = 12/52 (because there are 3 face cards and 4 suits of each).
+                The only thing left would be to determine how many of those 10 cards you would like to be face cards, and that would be x (because it is the number of successes you would like).
+            </p>
+        </section>
+        <section class="mt-4">
+            <h3>Requirements</h3>
+            <ol>
+                <li>The number of trials must be a whole number at least equal to the number of successes you are looking for and must also be greater than zero (n >= x and n > 0).</li>
+                <li>The number of successes must be a whole number greater than or equal to zero (x >= 0).</li>
+                <li>The probability of success must be greater than or equal to zero and also less than or equal to one (1 >= p >= 0).</li>
+            </ol>
+        </section>
     </main>
     <script src="scripts/settings.js"></script>
 </body>
