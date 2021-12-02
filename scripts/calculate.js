@@ -51,5 +51,5 @@ function drawGraph(hAxisMin, hAxisTitle, arr, discrete)
 {
     if (graph) graph.clearChart();
     graph = discrete ? new google.visualization.SteppedAreaChart(calculateResultsFig) : new google.visualization.AreaChart(calculateResultsFig);
-    graph.draw(google.visualization.arrayToDataTable(arr), {legend: {position: "none"}, hAxis: {title: hAxisTitle, viewWindow: {min: hAxisMin-1}}, vAxis: {title: `Probability${discrete ? "" : " Density"}`}});
+    graph.draw(google.visualization.arrayToDataTable(arr), {legend: {position: "none"}, hAxis: {title: hAxisTitle, viewWindow: {min: hAxisMin - (discrete ? 1 : 0)}}, vAxis: {title: `Probability${discrete ? "" : " Density"}`}});
 }

@@ -88,13 +88,26 @@
             let x2 = parseFloat(document.getElementById("xUpperBound").value);
             if (b >= x2 && x2 > x1 && x1 >= a)
             {
+                let probDensity = 1 / (b-a);
+                let points = [["Value", "Probability Density"]];
+                for (let i = a; i <= b; i+=.05)
+                {
+                    if (i+.05 >= x1) points.push([x1, probDensity]);
+                    if (i+.05 >= x2) points.push([x2, probDensity]);
+                    points.push([i, probDensity]);
+                    i+=.05;
+                }
+                drawGraph(a, "Value", points, false);
                 calculateResultsCaption.innerHTML = `Cumulative Density From ${x1} to ${x2}: ${(x2-x1) / (b-a)}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${(a+b) / 2}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${(b-a) * (b-a) / 12}<br>`;
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
             else
             {
+                if (graph) graph.clearChart();
                 calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='uniform-help.html'>the uniform distribution help page</a> if you need help.";
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
         }
     </script>

@@ -92,9 +92,10 @@
                         points.push([x, xProbability]);
                     }
                     currProbability = (1/B) * Math.exp(-i/B);
-                    points.push([i+=.05, currProbability]);
+                    points.push([i, currProbability]);
+                    i+=.05;
                 }
-                drawGraph(1, "Value", points, false);
+                drawGraph(0, "Value", points, false);
                 calculateResultsCaption.innerHTML = `Probability Density of ${x}: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${B}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${B*B}<br>`;

@@ -95,10 +95,11 @@
                         points.push([x, xProbability]);
                     }
                     currProbability = (1 / (o * Math.sqrt(2*Math.PI))) * Math.exp(((i-u)*(i-u))/(-2*o*o));
-                    points.push([i+=.05, currProbability]);
+                    points.push([i, currProbability]);
+                    i+=.05;
                 }
                 drawGraph(xAxisLow, "Value", points, false);
-                calculateResultsCaption.innerHTML = `Probability Density of ${x}: ${(1 / (o * Math.sqrt(2*Math.PI))) * Math.exp(((x-u)*(x-u))/(-2*o*o))}<br>`;
+                calculateResultsCaption.innerHTML = `Probability Density of ${x}: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${u}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${o*o}<br>`;
                 calculateResultsFig.appendChild(calculateResultsCaption);
