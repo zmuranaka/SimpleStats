@@ -54,9 +54,11 @@
         <section>
             <h2>Properties</h2>
             <ol class="mt-4">
-                <li>A geometric distribution represents an experiment that consists of a random number of trials denoted as x. The random variable is how many trials are run before the first success.</li>
+                <li>
+                    A geometric distribution represents an experiment that consists of a random number of identical and independent trials denoted as x.
+                    The random variable is how many trials are needed before the first success.
+                </li>
                 <li>Each of the trials in the experiment has only two results - either a success or a failure, and each has a probability of success denoted as p.</li>
-                <li>The trials are identical and independent.</li>
             </ol>
         </section>
         <section class="mt-5">
@@ -70,24 +72,28 @@
                     </p>
                 </li>
                 <li class="list-group-item">
-                    <h4>Success or Failure</h4>
-                    <p>
-                        The definition of a success in a geometric experiment is that you got whatever you were looking for.
-                        Therefore, the definition of a failure in a geometric experiment is that you did not get whatever you were looking for.
-                    </p>
-                </li>
-                <li class="list-group-item">
                     <h4>Identical and Independent</h4>
                     <p>
                         The trials being identical and independent means that the result of one trial has no effect on any other trials.
                         This means that the probability of a success does not change trial to trial.
                     </p>
                 </li>
+                <li class="list-group-item">
+                    <h4>Success or Failure</h4>
+                    <p>
+                        The definition of a success in a geometric experiment is that you got whatever you were looking for.
+                        Therefore, the definition of a failure in a geometric experiment is that you did not get whatever you were looking for.
+                    </p>
+                </li>
             </ul>
         </section>
         <section class="mt-4">
             <h3>Example</h3>
-            <p>When dealing with an experiment, if you hear or see the words "before" or "until" you are probably dealing with a geometric experiment.</p>
+            <p>
+                When dealing with an experiment, if you hear or see the words "before" or "until" you are probably dealing with a either a geometric or a negative binomial experiment.
+                If the experiment is continued until a single thing is achieved, then it is a geometric experiment.
+                If the experiment is continued until an amount of things other than one are achieved, it is a negative binomial experiment.
+            </p>
             <p>
                 For example, imagine you have a standard six-sided die and you are interested in how many times you have to roll it before it turns up a six.
                 This would be a geometric distribution with p = 1/6 or about 0.1667 (because there are six sides on a die and only one is a success).
