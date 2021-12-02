@@ -82,13 +82,29 @@
             let x = parseFloat(document.getElementById("value").value);
             if (B > 0 && x > 0)
             {
-                calculateResultsCaption.innerHTML = `Probability Density of ${x}: ${(1/B) * Math.exp(-x/B)}<br>`;
+                let currProbability = 0, i = 0, xProbability = 1;
+                let points = [["Trials", "Probability Density"]];
+                while (x >= i || currProbability > 0.001)
+                {
+                    if (i+.05 >= x && xProbability == 1)
+                    {
+                        xProbability = (1/B) * Math.exp(-x/B);
+                        points.push([x, xProbability]);
+                    }
+                    currProbability = (1/B) * Math.exp(-i/B);
+                    points.push([i+=.05, currProbability]);
+                }
+                drawGraph(1, "Value", points, false);
+                calculateResultsCaption.innerHTML = `Probability Density of ${x}: ${xProbability}<br>`;
                 calculateResultsCaption.innerHTML += `Mean: ${B}<br>`;
                 calculateResultsCaption.innerHTML += `Variance: ${B*B}<br>`;
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
             else
             {
+                if (graph) graph.clearChart();
                 calculateResultsCaption.innerHTML = "There was an error with the numbers you entered.<br>Visit <a href='exponential-help.html'>the exponential distribution help page</a> if you need help.";
+                calculateResultsFig.appendChild(calculateResultsCaption);
             }
         }
     </script>
