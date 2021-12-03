@@ -51,6 +51,62 @@
     </noscript>
     <h1 class="display-1 text-center py-5">Uniform Distribution Help</h1>
     <main class="container text-center">
+        <section>
+            <h2>Properties</h2>
+            <ol class="mt-4">
+                <li>A uniform distribution is a continuous distribution that is fully defined by its domain denoted as (a,b).</li>
+                <li>There is no random variable in a uniform distribution because the probability density is the same throughout the entire distribution.</li>
+                <li>The cumulative density that you are interested in observing is denoted as (x<sub>1</sub>, x<sub>2</sub>).</li>
+            </ol>
+        </section>
+        <section class="mt-5">
+            <h3>What do these properties mean?</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h4>Fully Defined by its Domain</h4>
+                    <p>
+                        This means that the only thing necessary to know in order to define a uniform distribution is its start point and its end point.
+                        This means that if you know the start point and end point of a uniform distribution, you know the entire distribution.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>No Random Variable</h4>
+                    <p>
+                        The uniform distribution has no random variable because the probability density is known throughout the entire distribution.
+                        As long as the variable you are interested in observing is within the distribution's domain, it has the probability density of any other point in the distribution.
+                        If the variable you are interested in observing is not within the distribution's domain, it has a probability density of zero.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Cumulative Density</h4>
+                    <p>
+                        The probability density of any point within a uniform distribution is the same as any other point, so it is more useful to observe the cumulative density.
+                        The cumulative density is defined as the probability of any of the points within the domain you are interested in being the true value observed.
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <section class="mt-4">
+            <h3>Example</h3>
+            <p>When dealing with a continuous distribution, if you see or hear the words "equally likely" or "uniform", you are dealing with a uniform distribution.</p>
+            <p>
+                For example, imagine that you are collecting data about the time you spend waiting for the bus every morning.
+                You arrive at the bus stop at the same time every morning, and from previous experience you know that the bus can take anywhere from 2 minutes to 10 minutes to get to the stop.
+                You have noticed that any time within this period seems to be equally likely for the bus to show up during.
+                This would be a uniform distribution with a = 2 (because that is the minimum amount of time the bus can take) and b = 10 (because that is the maximum amount of time the bus can take).
+                The only thing left would be to determine what block of time you are interested in observing the probability that it will arrive in.
+                The minimum of that amount of time will be x<sub>1</sub> and the maximum of that amount of time will be x<sub>2</sub>.
+                Note that the bus will not always arrive within that block of time - there is only some probability that it will.
+            </p>
+        </section>
+        <section class="mt-4">
+            <h3>Requirements</h3>
+            <ol>
+                <li>The upper bound of the distribution must be at least equal to the upper bound of the domain you are interested in observing (b >= x<sub>2</sub>).</li>
+                <li>The upper bound of the domain that you are interested in observing must be greater than the lower bound of the domain that you are interested in observing (x<sub>2</sub> > x<sub>1</sub>).</li>
+                <li>The lower bound of the domain that you are interested in observing must be at least equal to the lower bound of the distribution (x<sub>1</sub> >= a).</li>
+            </ol>
+        </section>
     </main>
     <script src="scripts/settings.js"></script>
 </body>
