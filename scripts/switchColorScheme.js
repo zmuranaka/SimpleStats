@@ -1,4 +1,3 @@
-"use strict";
 function switchColorScheme()
 {
     bodyClasses.toggle("dark-mode");

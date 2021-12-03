@@ -1,4 +1,3 @@
-"use strict";
 var calculateBtn = document.querySelector("button.btn.btn-primary.mt-3");
 var calculateResultsFig = document.querySelector("figure.border.h-100.w-100");
 var calculateResultsCaption = document.querySelector("figure.border.h-100.w-100 figcaption");
@@ -51,5 +50,10 @@ function drawGraph(hAxisMin, hAxisTitle, arr, discrete)
 {
     if (graph) graph.clearChart();
     graph = discrete ? new google.visualization.SteppedAreaChart(calculateResultsFig) : new google.visualization.AreaChart(calculateResultsFig);
-    graph.draw(google.visualization.arrayToDataTable(arr), {legend: {position: "none"}, hAxis: {title: hAxisTitle, viewWindow: {min: hAxisMin - (discrete ? 1 : 0)}}, vAxis: {title: `Probability${discrete ? "" : " Density"}`}});
+    let options = {
+        legend: {position: "none"},
+        hAxis: {title: hAxisTitle, viewWindow: {min: hAxisMin - (discrete ? 1 : 0)}},
+        vAxis: {title: `Probability${discrete ? "" : " Density"}`}
+    };
+    graph.draw(google.visualization.arrayToDataTable(arr), options);
 }
