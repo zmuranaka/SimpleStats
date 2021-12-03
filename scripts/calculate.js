@@ -51,9 +51,10 @@ function drawGraph(hAxisMin, hAxisTitle, arr, discrete)
     if (graph) graph.clearChart();
     graph = discrete ? new google.visualization.SteppedAreaChart(calculateResultsFig) : new google.visualization.AreaChart(calculateResultsFig);
     let options = {
+        backgroundColor: theme === "dark" ? "#222" : "white",
         legend: {position: "none"},
-        hAxis: {title: hAxisTitle, viewWindow: {min: hAxisMin - (discrete ? 1 : 0)}},
-        vAxis: {title: `Probability${discrete ? "" : " Density"}`}
+        hAxis: {gridlines: {color: theme === "dark" ? "white" : "#ccc"}, title: hAxisTitle, viewWindow: {min: hAxisMin - (discrete ? 1 : 0)}},
+        vAxis: {gridlines: {color: theme === "dark" ? "white" : "#ccc"}, title: `Probability${discrete ? "" : " Density"}`}
     };
     graph.draw(google.visualization.arrayToDataTable(arr), options);
 }
