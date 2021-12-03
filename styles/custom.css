@@ -37,7 +37,7 @@ body.dark-mode, body.dark-mode .list-group-item {
     color: white;
 }
 
-body.dark-mode figure, body.dark-mode figcaption {
+body.dark-mode figure.border, body.dark-mode figure.border figcaption {
     background: #222;
 }
 
