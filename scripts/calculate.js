@@ -51,10 +51,10 @@ function drawGraph(hAxisMin, hAxisTitle, arr, discrete)
     if (graph) graph.clearChart();
     graph = discrete ? new google.visualization.SteppedAreaChart(calculateResultsFig) : new google.visualization.AreaChart(calculateResultsFig);
     let options = {
-        backgroundColor: theme === "dark" ? "#444" : "white",
+        backgroundColor: theme === "dark" ? "#222" : "white",
         legend: {position: "none"},
-        hAxis: {gridlines: {color: theme === "dark" ? "white" : "#ccc"}, textStyle: {color: theme === "dark" ? "#eee" : "black"}, title: hAxisTitle, viewWindow: {min: hAxisMin - (discrete ? 1 : 0)}},
-        vAxis: {gridlines: {color: theme === "dark" ? "white" : "#ccc"}, textStyle: {color: theme === "dark" ? "#eee" : "black"}, title: `Probability${discrete ? "" : " Density"}`}
+        hAxis: {gridlines: {color: theme === "dark" ? "white" : "#ccc"}, textStyle: {color: theme === "dark" ? "#ddd" : "black"}, title: hAxisTitle, titleTextStyle: {color: theme === "dark" ? "#eee" : "black"}, viewWindow: {min: hAxisMin - (discrete ? 1 : 0)}},
+        vAxis: {gridlines: {color: theme === "dark" ? "white" : "#ccc"}, textStyle: {color: theme === "dark" ? "#ddd" : "black"}, title: `Probability${discrete ? "" : " Density"}`, titleTextStyle: {color: theme === "dark" ? "#eee" : "black"}}
     };
     graph.draw(google.visualization.arrayToDataTable(arr), options);
 }
