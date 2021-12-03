@@ -51,6 +51,62 @@
     </noscript>
     <h1 class="display-1 text-center py-5">Exponential Distribution Help</h1>
     <main class="container text-center">
+        <section>
+            <h2>Properties</h2>
+            <ol class="mt-4">
+                <li>An exponential distribution is a continuous distribution that is fully defined by only its mean denoted as 𝛽.</li>
+                <li>It is the continuous analog to the geometric distribution.</li>
+                <li>The random variable is the value that you are interested in observing and is denoted by x.</li>
+            </ol>
+        </section>
+        <section class="mt-5">
+            <h3>What do these properties mean?</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h4>Fully Defined by its Mean</h4>
+                    <p>
+                        This means that the only parameter that the distribution is defined by is its mean.
+                        As long as you know the mean of an exponential distribution, you know the entire distribution.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Continuous Analog</h4>
+                    <p>
+                        The exponential distribution is very similar to the discrete geometric distribution.
+                        However, the exponential distribution is measured continuously (meaning that all fractional numbers are included in the distribution).
+                        This is why it is referred to as the "continuous analog" of the geometric distribution - they are very similar distributions other than the way they are measured.
+                    </p>
+                </li>
+                <li class="list-group-item">
+                    <h4>Random Variable</h4>
+                    <p>
+                        In the case of a continuous distribution, the random variable is defined as having the density of the distribution.
+                        So, in this case, since the value that you are interested in observing is the random variable, it has the density of the exponential distribution.
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <section class="mt-4">
+            <h3>Example</h3>
+            <p>
+                When dealing with a continuous distribution, if you see or hear the words "during" or "every", you are probably dealing with an expopnential distribution.
+                This is because exponential distributions define the interval of a Poisson process, meaning that they define the interval over which discrete events are observed.
+            </p>
+            <p>
+                For example, imagine that a you are observing how often you receive a spam email.
+                You know from previous observation that you expect to receive a spam email every 1.2 days.
+                This would be an exponential distribution with 𝛽 = 1/1.2 or about 0.8333 (because that is the mean value of how often you receive a spam email).
+                The only thing left would be to determine the length of time you would like to observe from the distribution, and that would be x (because it is the value that you are finding the probability density of).
+                Note that you will not always receive a spam email in that amount of time - there is only some probability that you will.
+            </p>
+        </section>
+        <section class="mt-4">
+            <h3>Requirements</h3>
+            <ol>
+                <li>The mean value of the exponential distribution must be greater than zero (𝛽 > 0).</li>
+                <li>The value that you are interested in observing from the distribution must be greater than zero (x > 0).</li>
+            </ol>
+        </section>
     </main>
     <script src="scripts/settings.js"></script>
 </body>
