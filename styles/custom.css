@@ -75,3 +75,9 @@ body.small-font .navbar-brand {
 body.small-font a.nav-link {
     font-size: 1rem;
 }
+
+@media screen and (max-width: 991px) {
+    figure.border {
+        min-height: 30vh; /* Force a reasonable size for the graphs in the mobile view */
+    }
+}
