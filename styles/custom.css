@@ -76,6 +76,12 @@ body.small-font a.nav-link {
     font-size: 1rem;
 }
 
+@media screen and (max-width: 575px) {
+    ul {
+        padding-left: 0.5em;
+    }
+}
+
 @media screen and (max-width: 991px) {
     figure.border {
         min-height: 30vh; /* Force a reasonable size for the graphs in the mobile view */
