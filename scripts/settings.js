@@ -17,17 +17,6 @@ if (!theme)
     }
 }
 
-if (theme === "dark")
-{
-    bodyClasses.toggle("dark-mode");
-}
-
-if (font)
-{
-    document.body.style.fontFamily = `${font}, sans-serif`;
-}
-
-if (fontSize === "Small")
-{
-    bodyClasses.toggle("small-font");
-}
+if (theme === "dark") bodyClasses.toggle("dark-mode");
+if (font) document.body.style.fontFamily = `${font}, sans-serif`;
+if (fontSize === "Small") bodyClasses.toggle("small-font");

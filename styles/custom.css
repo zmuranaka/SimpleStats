@@ -4,31 +4,22 @@ body {
     color: black;
 }
 
-.cursor-pointer {
-    cursor: pointer;
-}
+.cursor-pointer { cursor: pointer }
 
-.form-check .form-check-input {
-    float: none; /* Overwrite the default float left property from Bootstrap */
-}
+/* Overwrite the default float left property from Bootstrap */
+.form-check .form-check-input { float: none }
 
 /* Navigation styles */
 
-nav {
-    background: #0d6efd;
-}
+nav { background: #0d6efd }
 
-.navbar-brand {
-    font-size: 1.5rem; /* Make the navbar a little bigger than the default in Bootstrap for easier reading */
-}
+/* Make the navbar a little bigger than the default in Bootstrap for easier reading */
+.navbar-brand { font-size: 1.5rem }
 
-a.nav-link {
-    font-size: 1.25rem;
-}
+a.nav-link { font-size: 1.25rem }
 
-a.nav-link.text-white:hover {
-    color: yellow !important; /* Overwrite the default hover color from Bootstrap of nav links with the text-white class */
-}
+/* Overwrite the default hover color from Bootstrap of nav links with the text-white class */
+a.nav-link.text-white:hover { color: yellow !important }
 
 /* Dark mode styles */
 
@@ -37,53 +28,37 @@ body.dark-mode, body.dark-mode .list-group-item {
     color: white;
 }
 
-body.dark-mode figure.border, body.dark-mode figure.border figcaption {
-    background: #222;
-}
+body.dark-mode figure.border, body.dark-mode figure.border figcaption { background: #222 }
 
-body.dark-mode nav {
-    background: #131313;
-}
+body.dark-mode nav { background: #131313 }
 
 body.dark-mode ul.dropdown-menu {
     background: #444;
     color: white;
 }
 
-body.dark-mode input[type=number], body.dark-mode select {
-    background-color: #ccc;
-}
+body.dark-mode input[type=number], body.dark-mode select { background-color: #ccc }
 
-body.dark-mode a.dropdown-item {
-    color: white;
-}
+body.dark-mode a.dropdown-item { color: white }
 
-body.dark-mode a.dropdown-item:hover {
-    background: #555;
-}
+body.dark-mode a.dropdown-item:hover { background: #555 }
 
 /* Small font styles */
 
-body.small-font {
-    font-size: 0.85rem;
-}
+body.small-font { font-size: 0.85rem }
 
-body.small-font .navbar-brand {
-    font-size: 1.25rem;
-}
+body.small-font .navbar-brand { font-size: 1.25rem }
 
-body.small-font a.nav-link {
-    font-size: 1rem;
-}
+body.small-font a.nav-link { font-size: 1rem }
 
 @media screen and (max-width: 575px) {
-    ul {
-        padding-left: 0.5em;
-    }
+    ul { padding-left: 0.5em }
+
+    /* On small screens, position-absolute leads overlapping with other content */
+    figure.position-absolute.bottom-0 { position: relative !important }
 }
 
 @media screen and (max-width: 991px) {
-    figure.border {
-        min-height: 30vh; /* Force a reasonable size for the graphs in the mobile view */
-    }
+    /* Force a reasonable size for the graphs in the mobile view */
+    figure.border { min-height: 30vh }
 }

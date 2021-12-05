@@ -6,7 +6,6 @@ function switchColorScheme()
         localStorage.setItem("theme", "dark");
         return "dark";
     }
-
     localStorage.setItem("theme", "light");
     return "light";
 }
